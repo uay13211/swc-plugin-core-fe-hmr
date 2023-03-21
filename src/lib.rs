@@ -2,7 +2,7 @@ use swc_core::common::DUMMY_SP;
 use swc_core::ecma::{
     ast::{
         CallExpr, Expr, ExprStmt, IfStmt, ImportDecl, ImportSpecifier, Module, ModuleItem, Program,
-        Script, Stmt,
+        Stmt,
     },
     utils::{member_expr, ExprFactory},
     visit::{as_folder, FoldWith, VisitMut, VisitMutWith},
@@ -35,14 +35,6 @@ fn decline_webpack_hmr_node() -> Stmt {
 }
 
 impl VisitMut for TransformVisitor {
-    fn visit_mut_script(&mut self, script: &mut Script) {
-        script.visit_mut_children_with(self);
-        if self.should_decline_hmr {
-            script.body.push(decline_webpack_hmr_node());
-            self.should_decline_hmr = false
-        }
-    }
-
     fn visit_mut_module(&mut self, module: &mut Module) {
         module.visit_mut_children_with(self);
         if self.should_decline_hmr {
