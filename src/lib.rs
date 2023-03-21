@@ -7,8 +7,8 @@ use swc_core::ecma::{
     utils::{member_expr, ExprFactory},
     visit::{as_folder, FoldWith, VisitMut, VisitMutWith},
 };
+use swc_core::plugin::metadata::TransformPluginProgramMetadata;
 use swc_core::plugin::plugin_transform;
-use swc_core::plugin::proxies::TransformPluginProgramMetadata;
 
 pub struct TransformVisitor {
     should_decline_hmr: bool,

@@ -20,14 +20,14 @@ strip = "symbols"
 
 [dependencies]
 serde = "1"
-swc_core = {version = "0.40.51", features = [
+swc_core = {version = "0.69.16", features = [
   "ecma_utils",
   "ecma_visit",
   "ecma_ast",
   "ecma_transforms",
-  "plugin_transform",
+  "ecma_plugin_transform",
+  "testing_transform"
 ]}
-swc_ecma_transforms_testing = {version = "0.114.29"}
 testing = {version = "0.31.13"}
 
 # .cargo/config defines few alias to build plugin.

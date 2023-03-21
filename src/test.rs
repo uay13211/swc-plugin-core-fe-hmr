@@ -2,7 +2,7 @@ use super::TransformVisitor;
 use std::path::PathBuf;
 use swc_core::ecma::{
     transforms::testing::{test, test_fixture, FixtureTestConfig},
-    visit::{as_folder, Fold},
+    visit::as_folder,
 };
 use testing::fixture;
 
