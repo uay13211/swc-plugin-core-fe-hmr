@@ -1,6 +1,6 @@
 {
   "name": "swc-plugin-core-fe-hmr",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A swc plugin for turn off hot module reload of core-fe module",
   "author": "uay13211",
   "license": "MIT",
@@ -13,8 +13,9 @@
   },
   "main": "swc_plugin_core_fe_hmr.wasm",
   "scripts": {
-    "build": "cargo build-wasi --release",
-    "prepublishOnly": "pnpm build && cp target/wasm32-wasi/release/swc_plugin_core_fe_hmr.wasm ."
+    "prepublishOnly": "pnpm build && cp target/wasm32-wasi/release/swc_plugin_core_fe_hmr.wasm .",
+    "build": "cargo +nightly build-wasi --release",
+    "test": "cargo test"
   },
   "files": []
 }
