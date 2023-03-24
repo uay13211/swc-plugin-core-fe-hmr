@@ -1,7 +1,7 @@
 [package]
 edition = "2021"
 name = "swc-plugin-core-fe-hmr"
-version = "0.1.0"
+version = "1.0.0"
 
 [lib]
 crate-type = ["cdylib"]
@@ -20,7 +20,7 @@ strip = "symbols"
 
 [dependencies]
 serde = "1"
-swc_core = {version = "0.69.16", features = [
+swc_core = {version = "0.69.26", features = [
   "ecma_utils",
   "ecma_visit",
   "ecma_ast",
