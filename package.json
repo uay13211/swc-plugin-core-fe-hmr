@@ -1,6 +1,6 @@
 {
   "name": "swc-plugin-core-fe-hmr",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A swc plugin for turn off hot module reload of core-fe module",
   "author": "uay13211",
   "license": "MIT",
