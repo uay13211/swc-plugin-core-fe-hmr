@@ -1229,7 +1229,7 @@ dependencies = [
 
 [[package]]
 name = "swc-plugin-core-fe-hmr"
-version = "1.0.3"
+version = "1.0.4"
 dependencies = [
  "serde",
  "swc_core",
