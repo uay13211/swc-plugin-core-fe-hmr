@@ -28,7 +28,7 @@ fn decline_webpack_hmr_node() -> Stmt {
 
     Stmt::If(IfStmt {
         span: DUMMY_SP,
-        test: if_stmt_test,
+        test: Box::new(swc_core::ecma::ast::Expr::Member(if_stmt_test)),
         cons: Box::new(if_stmt_cons),
         alt: None,
     })
