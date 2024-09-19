@@ -20,7 +20,7 @@ strip = "symbols"
 
 [dependencies]
 serde = "1.0.171"
-swc_core = {version = "0.90.16", features = [
+swc_core = {version = "0.101.4", features = [
   "ecma_utils",
   "ecma_visit",
   "ecma_ast",

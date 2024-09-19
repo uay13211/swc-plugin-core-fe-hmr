@@ -1,4 +1,4 @@
-use swc_core::common::DUMMY_SP;
+use swc_core::common::{SyntaxContext, DUMMY_SP};
 use swc_core::ecma::{
     ast::{
         CallExpr, Expr, ExprStmt, IfStmt, ImportDecl, ImportSpecifier, Module, ModuleItem, Program,
@@ -15,12 +15,13 @@ pub struct TransformVisitor {
 }
 
 fn decline_webpack_hmr_node() -> Stmt {
-    let if_stmt_test = member_expr!(DUMMY_SP, module.hot);
+    let if_stmt_test = member_expr!(SyntaxContext::empty(), DUMMY_SP, module.hot);
     let if_stmt_cons = Stmt::Expr(ExprStmt {
         span: DUMMY_SP,
         expr: Box::new(Expr::Call(CallExpr {
+            ctxt: SyntaxContext::empty(),
             span: DUMMY_SP,
-            callee: member_expr!(DUMMY_SP, module.hot.decline).as_callee(),
+            callee: member_expr!(SyntaxContext::empty(), DUMMY_SP, module.hot.decline).as_callee(),
             args: vec![],
             type_args: None,
         })),
