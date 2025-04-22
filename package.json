@@ -14,7 +14,7 @@
   "main": "swc_plugin_core_fe_hmr.wasm",
   "scripts": {
     "prepublishOnly": "pnpm build && cp target/wasm32-wasip1/release/swc_plugin_core_fe_hmr.wasm .",
-    "build": "cargo build-wasi --release",
+    "build": "cargo build-wasip1 --release",
     "test": "cargo test"
   },
   "files": []

@@ -8,7 +8,7 @@ use testing::fixture;
 
 #[fixture("fixture/**/input.js")]
 fn replacer_console_log(input: PathBuf) {
-    let output = input.parent().unwrap().join("output.js");
+    let output = PathBuf::from("fixture/tests/output.js");
     test_fixture(
         Default::default(),
         &|_tr| {
