@@ -5,7 +5,7 @@ use swc_core::ecma::{
         Stmt,
     },
     utils::{member_expr, ExprFactory},
-    visit::{as_folder, FoldWith, VisitMut, VisitMutWith},
+    visit::{VisitMut, VisitMutWith},
 };
 use swc_core::plugin::metadata::TransformPluginProgramMetadata;
 use swc_core::plugin::plugin_transform;
@@ -61,10 +61,14 @@ impl VisitMut for TransformVisitor {
 }
 
 #[plugin_transform]
-pub fn process_transform(program: Program, _metadata: TransformPluginProgramMetadata) -> Program {
-    program.fold_with(&mut as_folder(TransformVisitor {
+pub fn process_transform(
+    mut program: Program,
+    _metadata: TransformPluginProgramMetadata,
+) -> Program {
+    program.visit_mut_with(&mut TransformVisitor {
         should_decline_hmr: false,
-    }))
+    });
+    program
 }
 
 #[cfg(test)]
